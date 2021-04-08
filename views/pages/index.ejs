@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:,">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Film List</h1>
+
+
+    <div class="wrapper">
+        <% data.results.forEach(element=> { %>
+            <div class="wrapper-item">
+                <a href=<%=`/film/${element.id}`%>>
+
+
+                    <h3>
+                        <%= element.title %>
+                    </h3>
+                    <div class="img_inside">
+                        <img src=<%="http://image.tmdb.org/t/p/w200" + element.poster_path %> alt="">
+
+                    </div>
+                </a>
+            </div>
+
+            <% }) %>
+
+
+    </div>
+
+    <button id="btn">next page</button>
+
+
+    <script src="./main.js"></script>
+
+    <div class="pagination">
+        <button> <a href=""><<</a> </button>
+        <% for( let index = 0; index < 10; index++ ) { %>
+            <button> <%= index %>  </button>
+        <% } %>
+        <button> <a href="">>></a> </button>
+    </div>
+
+
+</body>
+
+</html>
